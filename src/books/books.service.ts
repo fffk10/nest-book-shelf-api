@@ -11,7 +11,11 @@ export class BooksService {
   }
 
   async findAll(): Promise<Book[] | null> {
-    return this.prisma.book.findMany();
+    const result = await this.prisma.book.findMany({
+      orderBy: { id: 'asc' },
+    });
+
+    return result;
   }
 
   async create(data: Prisma.BookCreateInput): Promise<Book> {
