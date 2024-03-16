@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { Book } from '@prisma/client';
 import { BooksService } from 'src/books/books.service';
 
@@ -12,14 +20,26 @@ export class BooksController {
   }
 
   @Post()
-  async craete(
-    @Body() book: { title: string; author: string; isbn: string },
-  ): Promise<Book> {
+  async craete(@Body() book: Book): Promise<Book> {
     const { title, author, isbn } = book;
     return this.booksService.create({
       title,
       author,
       isbn,
     });
+  }
+
+  @Put('/:id')
+  async update(@Param('id') id: string, @Body() book: Book): Promise<Book> {
+    const { title, author, isbn } = book;
+    return this.booksService.update({
+      where: { id: Number(id) },
+      data: { title, author, isbn },
+    });
+  }
+
+  @Delete('/:id')
+  async delete(@Param('id') id: string): Promise<void> {
+    this.booksService.delete({ id: Number(id) });
   }
 }

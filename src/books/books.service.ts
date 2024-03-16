@@ -13,4 +13,16 @@ export class BooksService {
   async create(data: Prisma.BookCreateInput): Promise<Book> {
     return this.prisma.book.create({ data });
   }
+
+  async update(params: {
+    where: Prisma.BookWhereUniqueInput;
+    data: Prisma.BookUpdateInput;
+  }): Promise<Book> {
+    const { data, where } = params;
+    return this.prisma.book.update({ data, where });
+  }
+
+  async delete(where: Prisma.BookWhereUniqueInput) {
+    return this.prisma.book.delete({ where });
+  }
 }
