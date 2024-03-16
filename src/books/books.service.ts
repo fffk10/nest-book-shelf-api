@@ -6,6 +6,10 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class BooksService {
   constructor(private prisma: PrismaService) {}
 
+  async findById(where: Prisma.BookWhereUniqueInput): Promise<Book | null> {
+    return this.prisma.book.findUnique({ where });
+  }
+
   async findAll(): Promise<Book[] | null> {
     return this.prisma.book.findMany();
   }

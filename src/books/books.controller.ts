@@ -14,6 +14,11 @@ import { BooksService } from 'src/books/books.service';
 export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
+  @Get('/:id')
+  async findById(@Param('id') id: string): Promise<Book | null> {
+    return this.booksService.findById({ id: Number(id) });
+  }
+
   @Get()
   async findAll(): Promise<Book[] | null> {
     return this.booksService.findAll();
