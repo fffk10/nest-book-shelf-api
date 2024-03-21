@@ -10,7 +10,7 @@ import { BooksModule } from 'src/books/books.module';
     BooksModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: ['.env.${process.env.node_env}'],
+      // envFilePath: ['.env.${process.env.node_env}'],
     }),
   ],
   controllers: [AppController],
