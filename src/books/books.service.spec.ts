@@ -1,9 +1,9 @@
-// import { Test, TestingModule } from '@nestjs/testing';
-// import { BooksService } from 'src/books/books.service';
-// import { prismaMock } from 'singleton';
+import { Test, TestingModule } from '@nestjs/testing';
+import { BooksService } from '@/src/books/books.service';
+import { prismaMock } from 'singleton';
 
 describe('BooksService', () => {
-  // let service: BooksService;
+  let service: BooksService;
 
   // beforeEach(async () => {
   //   const module: TestingModule = await Test.createTestingModule({

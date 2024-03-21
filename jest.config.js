@@ -14,4 +14,7 @@ module.exports = {
     'node',
     'mts',
   ],
+  moduleNameMapper: {
+    '^@/(.+)$': '<rootDir>/$1',
+  },
 };
