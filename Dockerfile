@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18.16.0-slim
 RUN apt-get update && \
     apt-get install -y locales curl
 RUN locale-gen ja_JP.UTF-8
