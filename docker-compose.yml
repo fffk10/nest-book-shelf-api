@@ -10,7 +10,7 @@ services:
       - .:/app
       - /app/node_modules
     environment:
-      DATABASE_URL: postgresql://fffk10:postgres.@db:5432/postgres
+      DATABASE_URL: postgresql://fffk10:postgres@db:5432/postgres
     networks:
       - app-net
     depends_on:
