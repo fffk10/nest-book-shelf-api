@@ -13,6 +13,11 @@ export class UsersController {
 
   @Post()
   async createUser(@Body() user: User): Promise<User> {
-    return this.usersService.createUser(user);
+    const { username, email, password } = user;
+    return this.usersService.createUser({
+      username,
+      email,
+      password,
+    });
   }
 }
