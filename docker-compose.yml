@@ -1,4 +1,5 @@
 version: '3.7'
+
 services:
   app:
     build: .
@@ -22,6 +23,7 @@ services:
     build:
       context: '.'
       dockerfile: 'db.Dockerfile'
+    container_name: bookshelf-db
     env_file:
       - .env
     restart: always
