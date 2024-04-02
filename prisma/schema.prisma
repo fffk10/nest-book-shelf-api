@@ -29,3 +29,12 @@ model User {
 
   @@map("users")
 }
+
+model UserBook {
+  id           Int       @id @default(autoincrement())
+  userId       String    @map("user_id") @db.Uuid
+  bookId       Int       @map("book_id") @db.Integer
+  acquiredDate DateTime? @map("acquired_date") @db.Timestamp(3)
+
+  @@map("user_books")
+}
